@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     //--------FUNCTION POUR CE DEPLACER-------------//
-    private void Walk(Vector2 dir, float speed)
+    private void Walk(Vector2 dir, float speed) //A étudier pour modifier quelque donnée et mieux comprendre ce qu'il ce passe 
     {
         Vector3 forward = cameraTransform.forward;
         Vector3 right = cameraTransform.right;

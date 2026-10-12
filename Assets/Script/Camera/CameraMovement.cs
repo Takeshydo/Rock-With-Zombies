@@ -7,15 +7,15 @@ public class CameraMovement : MonoBehaviour
     public Transform anchor;
     [SerializeField] public Transform player;
     
-    private float lookSensitivity = 1f;
+    private float lookSensitivity = 0.2f;
     private float minAngle = -30f;
     private float maxAngle = 30f;
 
-    private float recenterDelay = 3f;
-    private float recenterSmoothTime = 0.3f;
+    private float recenterDelay = 1.3f;
+    private float recenterSmoothTime = 0.15f;
     private bool recenterOnlyWhenMoving = true;
     private float timeSinceLastLook;
-    private float yawVelocity;
+    private float yawVelocity = 5f;
     
     //-------VARIABLES MOTEUR---------//
     private PlayerInputReader input;
@@ -56,7 +56,7 @@ public class CameraMovement : MonoBehaviour
         
     }
 
-    private void Center(Vector2 look)
+    private void Center(Vector2 look) //A étudier pour rendre ça plus Smooth etc... 
     {
         if (look.sqrMagnitude > 0.0001f)
         {
@@ -78,7 +78,7 @@ public class CameraMovement : MonoBehaviour
                 (!recenterOnlyWhenMoving || playerIsMoving))
             {
                 float targetYaw = player.eulerAngles.y;
-
+                  
                 yaw = Mathf.SmoothDampAngle(
                     yaw,
                     targetYaw,

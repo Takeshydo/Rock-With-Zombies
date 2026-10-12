@@ -5,6 +5,7 @@ public class CameraEffect : MonoBehaviour
 {
     //--------VARIABLE GLOBAL----------//
     private float runOffset = 1.5f;
+    private float turnOffset = 1f;
     private float transitionSpeed = 3f;
     
     //---------VARIABLE MOTEUR------------//
@@ -27,14 +28,28 @@ public class CameraEffect : MonoBehaviour
 
     public void RunEffect()
     {
+        Vector2 dir = input.Move;
+        
         Vector3 targetPos = initialPos;
 
         if (input.runActionPressed)
         {
             targetPos.z -= runOffset;
+            if ( dir.x > 0.3f)
+            {
+                targetPos.x -= turnOffset;
+            
+            }
+            else if (dir.x < -0.3f){
+                targetPos.x += turnOffset;
+         
+            }
         }
+        
 
         cameraTransform.localPosition =
             Vector3.Lerp(cameraTransform.localPosition, targetPos, transitionSpeed * Time.deltaTime);
+
+       
     }
 }

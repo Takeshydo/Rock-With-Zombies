@@ -239,7 +239,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26b211ed4e0930140ad681a20dd4f898, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraMovement
-  anchor: {fileID: 0}
+  anchor: {fileID: 1016761951}
+  player: {fileID: 1853975830}
   yaw: 0
   pitch: 0
 --- !u!114 &162127390
